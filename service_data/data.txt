@@ -1,0 +1,11 @@
+Данные хранятся на диске, поэтому программа защищена от внезапной ошибки и прекращения работы. 
+Данные хранятся в 3 категориях:
+
+				-"customers":[{"id":..,"name":..,"rating":..,"description":..,
+"course_id_list":[...]},...]
+
+				- "leaners":[{"id":..,"name":..,"courses":[{"id_course":.., "progress":..,
+				"calendar":calendar.calendar()}, ...]},...]
+
+				- "courses":[{"id":..,"id_customer":..,"name":..,"creation_date":..,
+"lesson_count":..,"level_of_complexity":..,"rating":..,"json_source_path":..},...]

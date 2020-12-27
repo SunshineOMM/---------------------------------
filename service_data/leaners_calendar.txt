@@ -1,0 +1,47 @@
+Формат файла:
+{
+    "leaners": {
+        "226876435": {
+            "8bfec8d0-9b65-4596-b97c-844f1823cbfc": {
+                "course_progress": [
+                    {
+                        "count_correct_user_answer": "0",
+                        "repeat": "0",
+                        "test": "0"
+                    },
+                    {
+                        "count_correct_user_answer": "0",
+                        "repeat": "1",
+                        "test": "0"
+                    },
+                    {
+                        "count_correct_user_answer": "1",
+                        "repeat": "1",
+                        "test": "0"
+                    }
+                ]
+            }
+        },
+        "342564034": {
+            "8bfec8d0-9b65-4596-b97c-844f1823cbfc": {
+                "course_progress": [
+                    {
+                        "count_correct_user_answer": "0",
+                        "repeat": "0",
+                        "test": "0"
+                    },
+                    {
+                        "count_correct_user_answer": "1",
+                        "repeat": "0",
+                        "test": "1"
+                    },
+                    {
+                        "count_correct_user_answer": "2",
+                        "repeat": "0",
+                        "test": "1"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "courses": [
+        {
+            "course_name": " Биология живой клетки",
+            "creation_date": "2020-12-27",
+            "description": "всем",
+            "id": "98b4cf28-7a94-4b5f-9330-deb5c3044c4e",
+            "id_customer": "342564034",
+            "json_source_path": "D:\\Rep\\Kursach\\content_management_system\\input_classification_data\\342564034\\2020-12-27.json",
+            "lesson_count": "1",
+            "level_of_complexity": "5",
+            "rating": "0",
+            "visibility": "global"
+        }
+    ],
+    "customers": [
+        {
+            "course_id_list": [],
+            "description": "чуть позже",
+            "id": "342564034",
+            "name": "Alex",
+            "rating": 0
+        }
+    ],
+    "leaners": [
+        {
+            "courses": [
+                "98b4cf28-7a94-4b5f-9330-deb5c3044c4e",
+                "98b4cf28-7a94-4b5f-9330-deb5c3044c4e",
+                "98b4cf28-7a94-4b5f-9330-deb5c3044c4e",
+                "98b4cf28-7a94-4b5f-9330-deb5c3044c4e",
+                "98b4cf28-7a94-4b5f-9330-deb5c3044c4e"
+            ],
+            "description": "fghjfghk",
+            "id": "342564034",
+            "name": "Alex"
+        }
+    ]
+}
