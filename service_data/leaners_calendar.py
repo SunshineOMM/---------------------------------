@@ -2,9 +2,11 @@ from dateutil.parser import parse
 import content_management_system.get_matetrial as get_mat
 import service_data.data as service_data
 import threading
-
-data_path="D:\Rep\Kursach\service_data\leaners_calendar.json"
-
+# import os
+# data_path=os.path.abspath('leaners_calendar.json ')
+#data_path="D:/projects/tgbot_Interactive-learning-program/service_data/leaners_calendar.json"
+import pathlib
+data_path = pathlib.Path('service_data/leaners_calendar.json')
 LOCK = threading.RLock()
 
 def add_event(leaner_id,course_id,event_id,event):
@@ -234,7 +236,7 @@ def create_new_course(leaner_id,id_course):
         data = get_mat.get_data_from_json(data_path)
         tmp_list=[]
         for i in range(int(service_data.get_count_lesson_in_course(id_course))):
-            tmp_list.append({"repeat": "6","test": "0","count_correct_user_answer":"0"})
+            tmp_list.append({"repeat": "2","test": "0","count_correct_user_answer":"0"})
         data["leaners"][leaner_id].update({id_course:{"course_progress": tmp_list}})
         get_mat.enter_data(data_path, data)
 

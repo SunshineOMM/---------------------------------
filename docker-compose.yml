@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+  tg_bot:
+    container_name: tg_bot
+    build: .
+    command: bash -c "python init.py"
+    ports:
+      - "5892:80"

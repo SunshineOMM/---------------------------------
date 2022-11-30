@@ -1,7 +1,11 @@
 import json
 import uuid
 from datetime import datetime
-data_path="D:\Rep\Kursach\service_data\data.json"
+# import os
+# data_path=os.path.abspath('data.json ')
+import pathlib
+data_path = pathlib.Path('service_data/data.json')
+#data_path="D:/projects/tgbot_Interactive-learning-program/service_data/data.json"
 
 def find(category,id):
     """
@@ -122,7 +126,7 @@ def add_new_course_for_customers(chat_id,course_id):
         data = json.load(f)
     for leaner_ind in range(len(data["leaners"])):
         if data["leaners"][leaner_ind]["id"]==chat_id:
-            data["leaners"][leaner_ind]["course_id_list"].append(course_id)
+            #data["leaners"][leaner_ind]["course_id_list"].append(course_id)
             with open(data_path, 'w', encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=4, sort_keys=True)
             return True

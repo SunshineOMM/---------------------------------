@@ -108,18 +108,18 @@ class bot(object):
         """Беседа регистрация нового автора в системе"""
         chat_id = str(update.message.chat_id)
         #   Проверка наличия этого пользователя уже в качестве автора
-        if data.find("customers",str(update.message["chat"]["id"])) == None:
-            answer = self.processing_the_next_dialog_message(chat_id,update.message, context, "author_registration")
-
-            if type(answer) == dict and data.enters_the_final_data_about_author(answer,chat_id):
-                update.message.reply_text(f"Регистрация прошла успешно, вот ваши данные: {answer}")
-            elif answer==service_data.str_error_for_registration:
-                self.remove_from_handler(chat_id,"author_registration")
-                update.message.reply_text(answer)
-            else:
-                update.message.reply_text(answer)
-        else:
-            update.message.reply_text(service_data.str_customer_already_regitred)
+        # if data.find("customers",str(update.message["chat"]["id"])) == None:
+        #     answer = self.processing_the_next_dialog_message(chat_id,update.message, context, "author_registration")
+        #
+        #     if type(answer) == dict and data.enters_the_final_data_about_author(answer,chat_id):
+        #         update.message.reply_text(f"Регистрация прошла успешно!")
+        #     elif answer==service_data.str_error_for_registration:
+        #         self.remove_from_handler(chat_id,"author_registration")
+        #         update.message.reply_text(answer)
+        #     else:
+        #         update.message.reply_text(answer)
+        #else:
+        update.message.reply_text(f"Поехали!")
 
     def create_course_command(self,update, context):
         """Беседа создания курса"""
@@ -131,7 +131,9 @@ class bot(object):
                 if answer.get("file")!=None:
                     # Отправляется пример
                     update.message.reply_text(answer["text"])
-                    with open("input_output_system\EXAMPLE.docx", "rb") as f:
+                    import os
+                    abs_path = os.path.abspath("input_output_system")
+                    with open(f"{abs_path}/EXAMPLE.docx", "rb") as f:
                         update.message.reply_document(f)
                 else:
                     if data.enters_the_final_data_about_course(answer,chat_id):
@@ -150,24 +152,25 @@ class bot(object):
         """Старт изучения курса"""
         chat_id = str(update.message.chat_id)
         #   Проверка на наличие этого обучаемого в системе, если его нет, то создать о нём запись
-        if data.find("leaners", chat_id) == None:
-            answer = self.processing_the_next_dialog_message(chat_id,update.message, context, "lern_course")
-            if type(answer) == dict:
-                if data.enters_the_final_data_about_leaner(answer,chat_id):
-                    update.message.reply_text(f"Регистрация прошла успешно, вот ваши данные: {answer}")
-                else:
-                    update.message.reply_text(f"Регистрация не прошла успешно")
-            if answer == service_data.str_error_for_registration:
-                self.remove_from_handler(chat_id, "lern_course")
-                update.message.reply_text(answer)
-            else:
-                update.message.reply_text(answer)
-        else:
+        # if data.find("leaners", chat_id) == None:
+        #     answer = self.processing_the_next_dialog_message(chat_id,update.message, context, "lern_course")
+        #     if type(answer) == dict:
+        #         print(f'answer: {answer}')
+        #         if data.enters_the_final_data_about_leaner(answer,chat_id):
+        #             update.message.reply_text(f"Регистрация прошла успешно!")
+        #         else:
+        #             update.message.reply_text(f"Регистрация не прошла успешно")
+        #     if answer == service_data.str_error_for_registration:
+        #         self.remove_from_handler(chat_id, "lern_course")
+        #         update.message.reply_text(answer)
+        #     else:
+        #         update.message.reply_text(answer)
+        # else:
             #   Предоставление выбора курса
-            list_name_id = data.get_name_and_id_for_all_courses(str(update.message.chat_id))
-            print_list_button_with_text(update, text="Выберите один из предложенных курсов",
-                                        button_list=list_name_id['course_name'],
-                                        callback_list=list_name_id["id"], type="choise")
+        list_name_id = data.get_name_and_id_for_all_courses(str(update.message.chat_id))
+        print_list_button_with_text(update, text="Выберите один из предложенных курсов",
+                                    button_list=list_name_id['course_name'],
+                                    callback_list=list_name_id["id"], type="choise")
 
     def checking_for_commands(self,update, context):
         """

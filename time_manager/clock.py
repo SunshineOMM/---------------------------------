@@ -33,7 +33,7 @@ class repeated_timer(object):
 
 def alarm():
     leaner.daily_calendar_crawl()
-    print(f"chek :{datetime.now()}")
+    #print(f"chek :{datetime.now()}")
 
 
 # print("starting...")

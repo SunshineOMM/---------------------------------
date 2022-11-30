@@ -7,8 +7,7 @@ import content_management_system.get_matetrial as get_mat
 #                 {"minutes":0,"hours":0,"days":16},{"minutes":0,"hours":0,"days":75}]
 
 #   Тестировочная версия повторений
-tech_of_repet=[{"minutes":1,"hours":0,"days":0},{"minutes":1,"hours":0,"days":0},{"minutes":1,"hours":0,"days":0},
-               {"minutes":1,"hours":0,"days":0},{"minutes":1,"hours":0,"days":0}]
+tech_of_repet=[{"minutes":1,"hours":0,"days":0},{"minutes":1,"hours":0,"days":0}]
 
 # LERN_PERIOD={"minutes":0,"hours":0,"days":3}
 
@@ -24,7 +23,7 @@ def create_repeat(id_leaner,id_course,number_lesson):
                 return f"\n\n\nНа этом всё) Поздравляю с успешным прохождением курса: {data.find('courses',id_course)['course_name']}!!!"
             else:
                 return False
-        elif count_repetitions==2 and not get_mat.is_empty_test(id_course,number_lesson):
+        elif count_repetitions==1 and not get_mat.is_empty_test(id_course,number_lesson):
             create_test_by_lesson(id_leaner, id_course, number_lesson)
         td = timedelta(days=tech_of_repet[count_repetitions-1]["days"], hours=tech_of_repet[count_repetitions-1]["hours"],
                        minutes=tech_of_repet[count_repetitions-1]["minutes"])

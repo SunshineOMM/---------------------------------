@@ -35,7 +35,7 @@ def repeat_lesson(id_leaner,id_course,lesson_number):
         lesson+=course_is_end
     progress=leaners_calendar.get_count_repetitions(id_leaner, id_course, lesson_number)
     progress=5-progress
-    progress=f"Повторение {int(lesson_number)+1} занятия, прогресс: {progress}/5\n"
+    progress=f"Повторение {int(lesson_number)+1} занятия, прогресс: {progress}/2\n"
     return progress+lesson
 
 def start_test_lesson(id_leaner,id_course,lesson_number):

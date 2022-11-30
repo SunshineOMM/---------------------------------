@@ -45,7 +45,8 @@ def dialog_about_create_course():
 
         yield {"course_name": data_dict["course_name"], "description": description,"json_source_path":data_dict["json_source_path"],"level_of_complexity":level_of_complexity,"lesson_count":data_dict["count_lesson"],"visibility":visibility}
         return
-    except:
+    except Exception as e:
+        print(e)
         yield service_data.str_error_for_create_course
 
 def handler_doc(update):
@@ -85,7 +86,7 @@ def dialog_about_lern_course():
         #   Введите дополнительную информацию(должность, профессиональная сфера, интересы, о себе)
         description = yield f"Приятно познакомиться {name}! Ведите необязательную информацию о себе (это нужно для того, чтобы лучше понимать аудиторию этого курса)"
         description=description.text
-        yield {"name": name, "description": description}
+        #yield {"name": name, "description": description}
         return
 
     except:
